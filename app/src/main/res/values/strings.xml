@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Sales and Purchase Order</string>
+    <array name="menuItens">
+        <item>Customer</item>
+        <item>Product</item>
+        <item>Sales Order</item>
+        <item>Purchase Order</item>
+        <item>Financials</item>
+    </array>
+    <string name="mainMenu">Main Menu</string>
+</resources>
