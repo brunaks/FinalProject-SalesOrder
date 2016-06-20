@@ -2,6 +2,8 @@ package com.brunaks.finalproject_salesorder;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -16,6 +18,13 @@ public class MainCustomerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_customer);
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.floatingButton);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            }
+        });
 
         ProgressDialog progress = new ProgressDialog(this);
         progress.setMessage(getResources().getString(R.string.loading));
