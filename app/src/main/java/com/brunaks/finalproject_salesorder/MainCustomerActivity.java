@@ -1,5 +1,6 @@
 package com.brunaks.finalproject_salesorder;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,7 +17,13 @@ public class MainCustomerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_customer);
 
-        ListCustomersAdapter adapter = new ListCustomersAdapter(this);
+        ProgressDialog progress = new ProgressDialog(this);
+        progress.setMessage(getResources().getString(R.string.loading));
+        progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progress.setIndeterminate(true);
+        progress.show();
+
+        ListCustomersAdapter adapter = new ListCustomersAdapter(this, progress);
 
         list = (ListView) findViewById(R.id.listCustomers);
         list.setAdapter(adapter);

@@ -2,6 +2,7 @@ package com.brunaks.finalproject_salesorder;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Build;
 import android.view.LayoutInflater;
@@ -30,7 +31,7 @@ public class ListCustomersAdapter extends ArrayAdapter {
     public final Activity context;
     JSONArray response;
 
-    public ListCustomersAdapter(Activity context) {
+    public ListCustomersAdapter(Activity context, final ProgressDialog progressDialog) {
         super(context, R.layout.list_customers);
 
         this.context = context;
@@ -40,11 +41,17 @@ public class ListCustomersAdapter extends ArrayAdapter {
             @TargetApi(Build.VERSION_CODES.KITKAT)
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
-                ListCustomersAdapter.super.addAll(response);
+                for (int index = 0; index < response.length(); index++) {
+                    try {
+                        ListCustomersAdapter.super.addAll(response.get(index));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
                 ListCustomersAdapter.this.response =  response;
+                progressDialog.dismiss();
                 ListCustomersAdapter.super.notifyDataSetChanged();
             }
-
             @Override
             public void onFailure(int statusCode, Header[] headers, String res, Throwable t) {
                 // called when response HTTP status is "4XX" (eg. 401, 403, 404)
@@ -58,7 +65,10 @@ public class ListCustomersAdapter extends ArrayAdapter {
         final View rowView = inflater.inflate(R.layout.list_customers, null, true);
 
         JSONObject customer = new JSONObject();
-        final TextView customerName = (TextView) rowView.findViewById(R.id.customerName);
+        TextView customerName = (TextView) rowView.findViewById(R.id.customerName);
+        ImageView customerImage = (ImageView) rowView.findViewById(R.id.customerImage);
+        customerImage.setImageResource(R.mipmap.add_customer);
+
         try {
             customer = response.getJSONObject(position);
             customerName.setText(customer.getString("name"));

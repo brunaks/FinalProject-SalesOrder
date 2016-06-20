@@ -8,4 +8,6 @@
         <item>Financials</item>
     </array>
     <string name="mainMenu">Main Menu</string>
+    <string name="customers">Customers</string>
+    <string name="loading">Loading...</string>
 </resources>
