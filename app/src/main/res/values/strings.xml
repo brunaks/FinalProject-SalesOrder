@@ -10,4 +10,11 @@
     <string name="mainMenu">Main Menu</string>
     <string name="customers">Customers</string>
     <string name="loading">Loading...</string>
+    <string name="label_id">ID</string>
+    <string name="customer_detail_title">Customer Detail</string>
+    <string name="id">ID</string>
+    <string name="name">Name</string>
+    <string name="cpf">CPF</string>
+    <string name="telephoneNumber">Telephone Number</string>
+    <string name="address">Address</string>
 </resources>

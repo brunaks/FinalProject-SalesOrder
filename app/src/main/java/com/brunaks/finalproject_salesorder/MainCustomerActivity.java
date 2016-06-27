@@ -10,9 +10,14 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class MainCustomerActivity extends AppCompatActivity {
 
     public ListView list;
+    private JSONArray customersData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,5 +41,25 @@ public class MainCustomerActivity extends AppCompatActivity {
 
         list = (ListView) findViewById(R.id.listCustomers);
         list.setAdapter(adapter);
+
+
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                try {
+                    JSONObject customerData = customersData.getJSONObject(position);
+                    Intent customerDetail = new Intent(MainCustomerActivity.this, CustomerDetailActivity.class);
+                    customerDetail.putExtra(CustomerDetailActivity.CUSTOMER_DATA, customerData.toString());
+                    startActivity(customerDetail);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    public void setCustomersData(JSONArray customersData) {
+        this.customersData = customersData;
     }
 }

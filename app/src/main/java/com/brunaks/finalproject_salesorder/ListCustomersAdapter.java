@@ -29,18 +29,21 @@ import cz.msebera.android.httpclient.Header;
 public class ListCustomersAdapter extends ArrayAdapter {
 
     public final Activity context;
+    public final MainCustomerActivity customerActivity;
     JSONArray response;
 
     public ListCustomersAdapter(Activity context, final ProgressDialog progressDialog) {
         super(context, R.layout.list_customers);
 
         this.context = context;
+        this.customerActivity = (MainCustomerActivity) context;
 
         AsyncHttpClient client = new AsyncHttpClient();
         client.get("http://bruna-webstore.herokuapp.com/listCustomers", new JsonHttpResponseHandler() {
             @TargetApi(Build.VERSION_CODES.KITKAT)
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+                ListCustomersAdapter.this.customerActivity.setCustomersData(response);
                 for (int index = 0; index < response.length(); index++) {
                     try {
                         ListCustomersAdapter.super.addAll(response.get(index));
