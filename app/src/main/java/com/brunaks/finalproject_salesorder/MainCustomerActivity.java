@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 
 import org.json.JSONArray;
@@ -24,10 +25,21 @@ public class MainCustomerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_customer);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.floatingButton);
+/*        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.floatingButton);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent createCustomer = new Intent(MainCustomerActivity.this, CreateCustomerActivity.class);
+                startActivity(createCustomer);
+            }
+        });*/
+
+        Button button = (Button) findViewById(R.id.floatingButton);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent createCustomer = new Intent(MainCustomerActivity.this, CreateCustomerActivity.class);
+                startActivity(createCustomer);
             }
         });
 

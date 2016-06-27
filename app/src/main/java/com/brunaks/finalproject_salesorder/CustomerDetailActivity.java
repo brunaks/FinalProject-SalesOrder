@@ -27,6 +27,5 @@ public class CustomerDetailActivity extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
     }
 }
