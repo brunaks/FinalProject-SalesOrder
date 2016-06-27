@@ -32,17 +32,17 @@ public class CreateCustomerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_customer);
 
-        //Button registerButton = (Button) findViewById(R.id.create_customer);
-        //assert registerButton != null;
-        //registerButton.setOnClickListener(new View.OnClickListener() {
-        //    @Override
-        //    public void onClick(View v) {
-        //        AsyncHttpClient client = new AsyncHttpClient();
-        //        String url = "bruna-webstore.herokuapp.com/registerCustomer";
-        //        createCustomerData();
-        //        StringEntity entity = null;
-        //        try {
-        /*            entity = new StringEntity(CreateCustomerActivity.this.toString());
+        Button registerButton = (Button) findViewById(R.id.create_customer);
+        assert registerButton != null;
+        registerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AsyncHttpClient client = new AsyncHttpClient();
+                String url = "bruna-webstore.herokuapp.com/registerCustomer";
+                createCustomerData();
+                StringEntity entity = null;
+                try {
+                    entity = new StringEntity(CreateCustomerActivity.this.toString());
                 } catch (UnsupportedEncodingException e) {
                     e.printStackTrace();
                 }
@@ -62,11 +62,11 @@ public class CreateCustomerActivity extends AppCompatActivity {
                     }
                 });
             }
-        });*/
+        });
     }
 
     public void createCustomerData() {
-        /*EditText name = (EditText) findViewById(R.id.addCustomerName);
+        EditText name = (EditText) findViewById(R.id.addCustomerName);
         EditText cpf = (EditText) findViewById(R.id.addCustomerCpf);
         EditText phone = (EditText) findViewById(R.id.addCustomerPhone);
         EditText address = (EditText) findViewById(R.id.addCustomerAddress);
@@ -79,6 +79,6 @@ public class CreateCustomerActivity extends AppCompatActivity {
             customerData.put("address", address.getText().toString());
         } catch (JSONException e) {
             e.printStackTrace();
-        }*/
+        }
     }
 }

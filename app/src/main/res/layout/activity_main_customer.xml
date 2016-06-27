@@ -27,19 +27,13 @@
         android:layout_below="@id/customersListTitle">
     </ListView>
 
-    <!--<android.support.design.widget.FloatingActionButton
+    <android.support.design.widget.FloatingActionButton
         android:id="@+id/floatingButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:src="@android:drawable/ic_input_add"
-        android:tint="@android:color/white"/>-->
-
-    <Button
-        android:id="@+id/floatingButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ADD"/>
+        android:tint="@android:color/white"/>
 
 </RelativeLayout>
