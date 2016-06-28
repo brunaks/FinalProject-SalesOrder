@@ -13,11 +13,17 @@
     <string name="loading">Loading...</string>
     <string name="label_id">ID</string>
     <string name="customer_detail_title">Customer Detail</string>
+    <string name="product_detail_title">Product Detail</string>
     <string name="id">ID</string>
     <string name="name">Name</string>
     <string name="cpf">CPF</string>
     <string name="telephoneNumber">Telephone Number</string>
     <string name="address">Address</string>
+
+    <string name="description">Description</string>
+    <string name="price">Price</string>
+    <string name="unitsInStock">Units in Stock</string>
+
     <string name="create_customer_title">Enter Customer Data:</string>
     <string name="customer_create_success">Customer created successfully</string>
     <string name="create_customer">Create Customer</string>

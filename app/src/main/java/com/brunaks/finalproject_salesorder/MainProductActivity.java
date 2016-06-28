@@ -65,7 +65,7 @@ public class MainProductActivity extends AppCompatActivity {
                 try {
                     JSONObject productData = productsData.getJSONObject(position);
                     Intent productDetail = new Intent(MainProductActivity.this, ProductDetailActivity.class);
-                    productDetail.putExtra(CustomerDetailActivity.CUSTOMER_DATA, productData.toString());
+                    productDetail.putExtra(ProductDetailActivity.PRODUCT_DATA, productData.toString());
                     startActivity(productDetail);
                 } catch (JSONException e) {
                     e.printStackTrace();
