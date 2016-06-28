@@ -38,11 +38,12 @@ public class CreateCustomerActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 AsyncHttpClient client = new AsyncHttpClient();
-                String url = "bruna-webstore.herokuapp.com/registerCustomer";
+                client.setURLEncodingEnabled(false);
+                String url = "http://bruna-webstore.herokuapp.com/registerCustomer";
                 createCustomerData();
                 StringEntity entity = null;
                 try {
-                    entity = new StringEntity(CreateCustomerActivity.this.toString());
+                    entity = new StringEntity(CreateCustomerActivity.this.customerData.toString());
                 } catch (UnsupportedEncodingException e) {
                     e.printStackTrace();
                 }
@@ -51,14 +52,14 @@ public class CreateCustomerActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                         Toast toast = new Toast(CreateCustomerActivity.this);
-                        toast.makeText(CreateCustomerActivity.this, R.string.customer_create_success, Toast.LENGTH_SHORT);
+                        toast.makeText(CreateCustomerActivity.this, R.string.customer_create_success, Toast.LENGTH_SHORT).show();
                         finish();
                     }
 
                     @Override
                     public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
-                        String response = responseBody.toString();
-                        Toast.makeText(CreateCustomerActivity.this, response, Toast.LENGTH_LONG);
+                        String errorMessage = error.getMessage();
+                        Toast.makeText(CreateCustomerActivity.this, errorMessage, Toast.LENGTH_LONG).show();
                     }
                 });
             }

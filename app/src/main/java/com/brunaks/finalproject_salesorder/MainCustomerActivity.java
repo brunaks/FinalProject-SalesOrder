@@ -33,7 +33,20 @@ public class MainCustomerActivity extends AppCompatActivity {
                 startActivity(createCustomer);
             }
         });
+    }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        this.refreshAdapter();
+    }
+
+    public void setCustomersData(JSONArray customersData) {
+        this.customersData = customersData;
+    }
+
+    public void refreshAdapter() {
         ProgressDialog progress = new ProgressDialog(this);
         progress.setMessage(getResources().getString(R.string.loading));
         progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
@@ -60,9 +73,5 @@ public class MainCustomerActivity extends AppCompatActivity {
                 }
             }
         });
-    }
-
-    public void setCustomersData(JSONArray customersData) {
-        this.customersData = customersData;
     }
 }
