@@ -27,4 +27,5 @@
     <string name="create_customer_title">Enter Customer Data:</string>
     <string name="customer_create_success">Customer created successfully</string>
     <string name="create_customer">Create Customer</string>
+    <string name="salesOrders">Sales Orders</string>
 </resources>
