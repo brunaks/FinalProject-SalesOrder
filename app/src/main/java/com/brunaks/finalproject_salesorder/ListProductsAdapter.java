@@ -21,36 +21,36 @@ import org.json.JSONObject;
 import cz.msebera.android.httpclient.Header;
 
 /**
- * Created by Bruna Koch Schmitt on 19/06/2016.
+ * Created by Bruna Koch Schmitt on 28/06/2016.
  */
-public class ListCustomersAdapter extends ArrayAdapter {
+public class ListProductsAdapter extends ArrayAdapter{
 
     public final Activity context;
-    public final MainCustomerActivity customerActivity;
+    public final MainProductActivity productActivity;
     JSONArray response;
 
-    public ListCustomersAdapter(Activity context, final ProgressDialog progressDialog) {
+    public ListProductsAdapter(Activity context, final ProgressDialog progressDialog) {
         super(context, R.layout.list);
 
         this.context = context;
-        this.customerActivity = (MainCustomerActivity) context;
+        this.productActivity = (MainProductActivity) context;
 
         AsyncHttpClient client = new AsyncHttpClient();
-        client.get("http://bruna-webstore.herokuapp.com/listCustomers", new JsonHttpResponseHandler() {
+        client.get("http://bruna-webstore.herokuapp.com/products", new JsonHttpResponseHandler() {
             @TargetApi(Build.VERSION_CODES.KITKAT)
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
-                ListCustomersAdapter.this.customerActivity.setCustomersData(response);
+                ListProductsAdapter.this.productActivity.setProductsData(response);
                 for (int index = 0; index < response.length(); index++) {
                     try {
-                        ListCustomersAdapter.super.addAll(response.get(index));
+                        ListProductsAdapter.super.addAll(response.get(index));
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
                 }
-                ListCustomersAdapter.this.response =  response;
+                ListProductsAdapter.this.response =  response;
                 progressDialog.dismiss();
-                ListCustomersAdapter.super.notifyDataSetChanged();
+                ListProductsAdapter.super.notifyDataSetChanged();
             }
             @Override
             public void onFailure(int statusCode, Header[] headers, String res, Throwable t) {
@@ -64,17 +64,18 @@ public class ListCustomersAdapter extends ArrayAdapter {
         LayoutInflater inflater = context.getLayoutInflater();
         final View rowView = inflater.inflate(R.layout.list, null, true);
 
-        JSONObject customer = new JSONObject();
-        TextView customerName = (TextView) rowView.findViewById(R.id.name);
-        ImageView customerImage = (ImageView) rowView.findViewById(R.id.image);
-        customerImage.setImageResource(R.mipmap.add_customer);
+        JSONObject product = new JSONObject();
+        TextView productName = (TextView) rowView.findViewById(R.id.name);
+        ImageView productImage = (ImageView) rowView.findViewById(R.id.image);
+        productImage.setImageResource(R.mipmap.add_product);
 
         try {
-            customer = response.getJSONObject(position);
-            customerName.setText(customer.getString("name"));
+            product = response.getJSONObject(position);
+            productName.setText(product.getString("name"));
         } catch (JSONException e) {
             e.printStackTrace();
         }
         return rowView;
     };
+
 }

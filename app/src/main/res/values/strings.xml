@@ -9,6 +9,7 @@
     </array>
     <string name="mainMenu">Main Menu</string>
     <string name="customers">Customers</string>
+    <string name="products">Products</string>
     <string name="loading">Loading...</string>
     <string name="label_id">ID</string>
     <string name="customer_detail_title">Customer Detail</string>

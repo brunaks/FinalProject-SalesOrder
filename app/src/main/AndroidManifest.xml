@@ -19,7 +19,9 @@
         </activity>
         <activity android:name=".MainCustomerActivity" />
         <activity android:name=".CustomerDetailActivity" />
-        <activity android:name=".CreateCustomerActivity"></activity>
+        <activity android:name=".CreateCustomerActivity" />
+        <activity android:name=".MainProductActivity" />
+        <activity android:name=".ProductDetailActivity"></activity>
     </application>
 
 </manifest>

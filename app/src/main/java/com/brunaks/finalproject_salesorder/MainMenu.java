@@ -42,6 +42,11 @@ public class MainMenu extends AppCompatActivity {
                     case 0:
                         Intent customerIntent = new Intent(MainMenu.this, MainCustomerActivity.class);
                         startActivity(customerIntent);
+                        break;
+                    case 1:
+                        Intent productIntent = new Intent(MainMenu.this, MainProductActivity.class);
+                        startActivity(productIntent);
+                        break;
                 }
             }
         });
