@@ -81,7 +81,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:src="@android:drawable/ic_input_add"
+        android:src="@drawable/ic_trending_up_white_24dp"
         android:tint="@android:color/white"/>
 
     <android.support.design.widget.FloatingActionButton
@@ -90,7 +90,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:src="@android:drawable/ic_delete"
+        android:src="@drawable/ic_trending_down_white_24dp"
         android:tint="@android:color/white"/>
 
 </RelativeLayout>
