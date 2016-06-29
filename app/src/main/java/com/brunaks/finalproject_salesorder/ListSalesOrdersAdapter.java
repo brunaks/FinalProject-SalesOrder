@@ -62,18 +62,17 @@ public class ListSalesOrdersAdapter extends ArrayAdapter{
     public View getView(int position, View view, ViewGroup parent) {
 
         LayoutInflater inflater = context.getLayoutInflater();
-        final View rowView = inflater.inflate(R.layout.list_orders, null, true);
+        final View rowView = inflater.inflate(R.layout.list, null, true);
 
         JSONObject order = new JSONObject();
-        TextView orderId = (TextView) rowView.findViewById(R.id.order_id);
-        TextView orderData = (TextView) rowView.findViewById(R.id.order_data);
+        TextView orderText = (TextView) rowView.findViewById(R.id.name);
         ImageView image = (ImageView) rowView.findViewById(R.id.image);
         image.setImageResource(R.mipmap.sales_order);
 
         try {
-             order = response.getJSONObject(position);
-            orderId.setText(order.getString("id"));
-            orderData.setText(order.getString("date"));
+            order = response.getJSONObject(position);
+            String orderDateAndTotal = order.getString("date").concat(" ").concat("R$").concat(order.getString("total"));
+            orderText.setText(orderDateAndTotal);
         } catch (JSONException e) {
             e.printStackTrace();
         }

@@ -14,6 +14,7 @@
     <string name="label_id">ID</string>
     <string name="customer_detail_title">Customer Detail</string>
     <string name="product_detail_title">Product Detail</string>
+    <string name="sales_order_detail_title">Sales Order Detail</string>
     <string name="id">ID</string>
     <string name="name">Name</string>
     <string name="cpf">CPF</string>
@@ -28,4 +29,9 @@
     <string name="customer_create_success">Customer created successfully</string>
     <string name="create_customer">Create Customer</string>
     <string name="salesOrders">Sales Orders</string>
+
+    <string name="date">Date</string>
+    <string name="status">Status</string>
+    <string name="total">Total</string>
+    <string name="customerId">ID do Customer</string>
 </resources>

@@ -65,7 +65,7 @@ public class MainSalesOrderActivity extends AppCompatActivity {
                 try {
                     JSONObject data = salesOrderData.getJSONObject(position);
                     Intent salesOrderDetail = new Intent(MainSalesOrderActivity.this, SalesOrderDetailActivity.class);
-                    salesOrderDetail.putExtra(ProductDetailActivity.PRODUCT_DATA, data.toString());
+                    salesOrderDetail.putExtra(SalesOrderDetailActivity.DATA, data.toString());
                     startActivity(salesOrderDetail);
                 } catch (JSONException e) {
                     e.printStackTrace();
