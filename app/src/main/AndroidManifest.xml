@@ -24,7 +24,11 @@
         <activity android:name=".ProductDetailActivity" />
         <activity android:name=".MainSalesOrderActivity" />
         <activity android:name=".SalesOrderDetailActivity" />
-        <activity android:name=".MainPurchaseOrderActivity"></activity>
+        <activity android:name=".MainPurchaseOrderActivity" />
+        <activity android:name=".PurchaseOrderDetailActivity" />
+        <activity android:name=".MainFinancialsActivity" />
+        <activity android:name=".ListSumsToReceiveActivity" />
+        <activity android:name=".ListSumsToPayActivity"></activity>
     </application>
 
 </manifest>

@@ -7,23 +7,23 @@ import android.widget.ListView;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class SalesOrderDetailActivity extends AppCompatActivity {
+public class PurchaseOrderDetailActivity extends AppCompatActivity {
 
-    public static final String DATA = "salesOrderData";
-    JSONObject salesOrderData;
+    public static final String DATA = "purchaseOrderData";
+    JSONObject purchaseOrderData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sales_order_detail);
+        setContentView(R.layout.activity_purchase_order_detail);
 
         try {
-            salesOrderData = new JSONObject(getIntent().getStringExtra(DATA));
+            purchaseOrderData = new JSONObject(getIntent().getStringExtra(DATA));
             DetailFragment detailFragment = (DetailFragment) getFragmentManager().findFragmentById(R.id.detail_fragment);
-            detailFragment.setData(salesOrderData);
+            detailFragment.setData(purchaseOrderData);
 
             ListView itemsList = (ListView) findViewById(R.id.items_list);
-            ItemsAdapter itemsAdapter = new SalesOrderItemsAdapter(this, salesOrderData);
+            ItemsAdapter itemsAdapter = new PurchaseOrderItemsAdapter(this, purchaseOrderData);
             itemsList.setAdapter(itemsAdapter);
 
         } catch (JSONException e) {
